@@ -2,7 +2,7 @@
     "stage": {
         "app_function": "app.app",
         "aws_region": "us-east-1",
-        "profile_name": "zappa",
+        
         "project_name": "sandipan-z-test",
         "runtime": "python3.7",
         "s3_bucket": "sandipan-zappa-staging-bucket",
