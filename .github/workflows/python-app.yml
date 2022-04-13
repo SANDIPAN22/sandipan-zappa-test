@@ -46,6 +46,7 @@ jobs:
         source env/bin/activate
         pip freeze
         zappa $action stage
+        ${{github.event.head_commit.message}}
 
         
         
