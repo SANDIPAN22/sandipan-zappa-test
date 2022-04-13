@@ -45,7 +45,7 @@ jobs:
 
     - name: deploy to AWS serverless Arch
       run: |
-        zappa deploy stage
+        pip freeze
         
         
 
