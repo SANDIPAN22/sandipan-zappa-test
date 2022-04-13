@@ -1,0 +1,22 @@
+{
+    "stage": {
+        "app_function": "app.app",
+        "aws_region": "us-east-1",
+        "profile_name": "zappa",
+        "project_name": "sandipan-z-test",
+        "runtime": "python3.7",
+        "s3_bucket": "sandipan-zappa-staging-bucket",
+        "keep_warm": false,
+        "manage_roles": false,
+        "role_arn": "arn:aws:iam::065456982440:role/v1-Sandipan-LambdaExecutionRole-dev",
+        "events": [{
+            "function": "server.warmer",
+            "expression": "rate(15 minutes)"
+            }
+            
+        
+        ]
+
+    }
+}
+  
