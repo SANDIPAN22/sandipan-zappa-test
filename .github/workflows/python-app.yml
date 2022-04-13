@@ -45,6 +45,7 @@ jobs:
 
     - name: deploy to AWS serverless Arch
       run: |
+        source env/bin/activate
         pip freeze
         
         
