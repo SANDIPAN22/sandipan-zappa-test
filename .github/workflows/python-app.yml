@@ -12,12 +12,12 @@ permissions:
   contents: read
 
 jobs:
-  env:
-    action: update
-  build:
+  build-n-publish:
 
     runs-on: ubuntu-latest
-
+    env:
+      ## Possible options are deploy/ update/ schedule/ unschedule/ status
+      action: update
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.9
@@ -40,16 +40,13 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
         action: update
-  if: ${{env.action== 'update'}}
-  update: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: deploy to AWS serverless Arch
-        run: |
-          source env/bin/activate
-          pip freeze
-          zappa deploy stage
-          zappa update stage
+
+    - name: deploy to AWS serverless Arch
+      run: |
+        source env/bin/activate
+        pip freeze
+        zappa $action stage
+
         
         
 
