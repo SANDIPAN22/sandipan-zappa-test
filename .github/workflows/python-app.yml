@@ -44,12 +44,7 @@ jobs:
       run: |
         source env/bin/activate
         zappa deploy stage || zappa update stage
-    # - name: update the AWS serverless Model
-    #   if: always()
-    #   run: |
-        
-    #     source env/bin/activate
-    #     zappa update stage
+  
 
 
         
