@@ -40,12 +40,14 @@ jobs:
         action: update
 
     - name: deploy to AWS serverless Arch
-      continue-on-error: true
+      
       run: |
         source env/bin/activate
         zappa deploy stage
     - name: update the AWS serverless Model
+      if: always()
       run: |
+        
         source env/bin/activate
         zappa update stage
 
